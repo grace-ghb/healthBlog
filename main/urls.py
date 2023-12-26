@@ -16,11 +16,12 @@ Including another URLconf
 # Import views from main app
 # from . import views
 from django.contrib import admin
-from django.urls import path, include
 # include method allows to include URLs from other files
+from django.urls import path, include
 
 urlpatterns = [
-    # path('', views.home, name='home')
+    # path('', Index.as_view(), name='home')
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
+    path('', include('home.urls')),
 ]
