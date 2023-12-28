@@ -82,3 +82,17 @@ img.logo {
     width: 7.5rem;
     border-radius: 50%;
 }
+
+.active{
+    border-bottom: 2px solid var(--blue;
+    font-weight: 500;
+}
+
+/* form */
+
+.form{
+    width: 100%;
+    margin: 3% auto;
+    box-shadow: var(--smal-box-shadow);
+    border-radius: 5px;
+}

@@ -33,6 +33,7 @@ ALLOWED_HOSTS = [
     '8000-grace-ghb-healthblog-ndpc1riqo1.us2.codeanyapp.com',
     'healthblog-6dae80a57a48.herokuapp.com']
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-grace-ghb-healthblog-ndpc1riqo1.us2.codeanyapp.com']
 
 # Application definition
 
@@ -56,6 +57,10 @@ INSTALLED_APPS = [
 
     # Apps
     'home',
+
+    # Other
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 SITE_ID = 1
@@ -84,13 +89,17 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
 ROOT_URLCONF = 'main.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates')
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'account'), 
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -100,6 +109,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
@@ -153,6 +166,20 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+# Account setup
+
+ACCOUNT_AUTHENTICATION = True
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 
 
 # Static files (CSS, JavaScript, Images)
