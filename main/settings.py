@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 import os
-# import django_heroku
+import django_heroku
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
@@ -194,7 +194,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfile")
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
