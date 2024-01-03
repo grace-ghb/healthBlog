@@ -11,7 +11,3 @@ class PostList(generic.ListView):
 
 class Index(TemplateView):
     template_name = 'home/index.html'
-
-# class About(View):
-#     def about(request):
-#         return render(request, 'about.html')

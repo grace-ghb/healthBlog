@@ -25,6 +25,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: var(--main-font);
+    color: red;
 }
 
 h1,
@@ -39,6 +40,7 @@ h6 {
 main {
     flex: 1 0 auto;
     background-color: var(--white);
+
 }
 
 /* Footer */
@@ -61,11 +63,12 @@ footer {
 .navbar {
     background-color: var(--off-white);
     box-shadow: var(--smal-box-shadow);
-    letter-spacing: 4px;
+    letter-spacing: 4px;  
 }
 
 a.nav-link {
     color: var(--black);
+    margin-left: 20px;
 }
 
 a.nav-link:hover {
@@ -73,7 +76,7 @@ a.nav-link:hover {
 }
 
 img.logo {
-    width: 9rem;
+    width: 6rem;
 }
 
 .active {
@@ -90,4 +93,8 @@ img.logo {
     margin: 3% auto;
     box-shadow: var(--smal-box-shadow);
     border-radius: 5px;
+}
+
+#login-container{
+    background-color: purple;
 }
