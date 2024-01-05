@@ -10,10 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 from pathlib import Path
+import dj_database_url
 
 import os
-import django_heroku
-import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
@@ -28,13 +27,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = True
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+# DEBUG = False
+DEBUG = True
+X_FRAME_FalseONS = 'SAMEORIGIN'
 
 
 ALLOWED_HOSTS = [
-    '8000-grace-ghb-healthblog-ndpc1riqo1.us2.codeanyapp.com',
+    '8001-grace-ghb-healthblog-incub1h0pw.us2.codeanyapp.com',
     'healthblog-6dae80a57a48.herokuapp.com']
 
 CSRF_TRUSTED_ORIGINS = [
@@ -193,7 +192,7 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = [
     'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 ]
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STATICFILES_FINDERS = [
@@ -204,9 +203,5 @@ STATICFILES_FINDERS = [
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-django_heroku.settings(locals())
-
 # Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
