@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = False
 # DEBUG = True
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -37,7 +37,8 @@ ALLOWED_HOSTS = [
     '8000-grace-ghb-healthblog-ndpc1riqo1.us2.codeanyapp.com',
     'healthblog-6dae80a57a48.herokuapp.com']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-grace-ghb-healthblog-ndpc1riqo1.us2.codeanyapp.com']
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-grace-ghb-healthblog-ndpc1riqo1.us2.codeanyapp.com']
 
 # Application definition
 
@@ -103,7 +104,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'templates', 'account'), 
+            os.path.join(BASE_DIR, 'templates', 'account'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -185,18 +186,16 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = [
-    'cloudinary_storage.storage.StaticHashedCloudinaryStorage',
-    'whitenoise.storage.CompressedManifestStaticFilesStorage',
-    'django.contrib.staticfiles.storage.StaticFilesStorage',
+    'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 ]
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfile")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder'
